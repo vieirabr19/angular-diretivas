@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let menu of menus; index as i"><a [class.active]="aba == i" (click)="aba = i">{{menu}}</a></li>
+
+  <!-- <li><a [class.active]="aba == 'home'" (click)="aba = 'home'">Home</a></li>
+  <li><a [class.active]="aba == 'lista'" (click)="aba = 'lista'">Lista</a></li>
+  <li><a [class.active]="aba == 'mapa'" (click)="aba = 'mapa'">Mapa</a></li> -->
+</ul>
+
+<div *ngFor="let menu of menus; index as i" [ngSwitch]="aba">
+  <p *ngSwitchCase="i">{{menu}}</p>
+</div>

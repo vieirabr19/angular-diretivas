@@ -1,0 +1,7 @@
+<app-item *ngFor="let item of items" [item]="item">
+  <input type="checkbox" [(ngModel)]="item.checked"/>
+</app-item>
+
+<button type="button" (click)="toggle()" highlightMouse>Toogle</button> &nbsp;
+
+<button type="button" (click)="toggleAll()" fundoAmarelo>Toogle All</button>
