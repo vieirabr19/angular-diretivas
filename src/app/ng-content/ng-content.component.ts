@@ -29,6 +29,8 @@ export class NgContentComponent implements OnInit {
     }
   ];
 
+  mostrar = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class NgContentComponent implements OnInit {
   }
 
   toggleAll(){
-    this.items.forEach(item => item.checked ? item.checked === true : item.checked === false);
+    this.mostrar = !this.mostrar;
   }
 
 }

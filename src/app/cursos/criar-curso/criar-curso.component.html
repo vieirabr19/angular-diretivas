@@ -1,0 +1,10 @@
+<h3>CURSOS CRIADOS</h3>
+
+<input type="text" #criar /> &nbsp;
+<button type="button" (click)="criarCurso(criar.value)">CRIAR CURSO</button>
+
+<ul>
+  <li *ngFor="let curso of cursosList">{{curso}}</li>
+</ul>
+
+<receber-curso-criado></receber-curso-criado>
