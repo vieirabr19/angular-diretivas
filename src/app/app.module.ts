@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +14,12 @@ import { ItemComponent } from './item/item.component';
 import { NgContentComponent } from './ng-content/ng-content.component';
 import { NgElseDirective } from './ngElse/ng-else.directive';
 import { SwitchComponent } from './switch/switch.component';
+import { CamelCasePipe } from './pipes/camel-case.pipe';
+import { ExemplosPipesComponent } from './exemplos-pipes/exemplos-pipes.component';
+import { SettingsService } from './services/settings.service';
+import { FiltroArrayPipe } from './pipes/filtro-array.pipe';
 
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -24,7 +30,10 @@ import { SwitchComponent } from './switch/switch.component';
     FundoAmareloDirective,
     HighlightMouseDirective,
     HighlightDirective,
-    NgElseDirective
+    NgElseDirective,
+    CamelCasePipe,
+    ExemplosPipesComponent,
+    FiltroArrayPipe
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,18 @@ import { SwitchComponent } from './switch/switch.component';
     CriarCursoModule,
     CursoModule
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: LOCALE_ID,
+    //   useValue: 'pt'
+    // }
+    SettingsService,
+    {
+      provide: LOCALE_ID,
+      deps: [SettingsService],
+      useFactory: (settingsService => settingsService.getLocale())
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
