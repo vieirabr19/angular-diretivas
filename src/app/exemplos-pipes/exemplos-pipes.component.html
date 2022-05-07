@@ -11,12 +11,35 @@
 
 <hr>
 
+{{valorAsync | async}} - 
+{{valorAsync2 | async}}
+
+<hr>
+
 <input type="text" placeholder="Filtrar curso" [(ngModel)]="filtro"><br><br>
 <input type="text" placeholder="Adicionar curso" #novoCurso>
 <button type="button" (click)="addCurso(novoCurso.value)">Add Curso</button>
 
+<h2>Pipe Puro</h2>
+
 <ul>
   <li *ngFor="let livro of livros | filtroArray:filtro">
+    {{livro}}
+  </li>
+</ul>
+
+<h2>Pipe Impuro</h2>
+
+<ul>
+  <li *ngFor="let livro of livros | filtroArrayImpuro:filtro">
+    {{livro}}
+  </li>
+</ul>
+
+<h2>Maneira correta de filtrar</h2>
+
+<ul>
+  <li *ngFor="let livro of obterCurso()">
     {{livro}}
   </li>
 </ul>

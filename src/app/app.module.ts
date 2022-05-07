@@ -18,6 +18,7 @@ import { CamelCasePipe } from './pipes/camel-case.pipe';
 import { ExemplosPipesComponent } from './exemplos-pipes/exemplos-pipes.component';
 import { SettingsService } from './services/settings.service';
 import { FiltroArrayPipe } from './pipes/filtro-array.pipe';
+import { FiltroArrayImpuroPipe } from './pipes/filtro-array-impuro.pipe';
 
 registerLocaleData(localePt);
 
@@ -33,7 +34,8 @@ registerLocaleData(localePt);
     NgElseDirective,
     CamelCasePipe,
     ExemplosPipesComponent,
-    FiltroArrayPipe
+    FiltroArrayPipe,
+    FiltroArrayImpuroPipe
   ],
   imports: [
     BrowserModule,
